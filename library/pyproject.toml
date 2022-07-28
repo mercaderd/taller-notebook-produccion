@@ -1,0 +1,13 @@
+[build-system]
+requires = ["flit_core >=3.2,<4"]
+build-backend = "flit_core.buildapi"
+
+[project]
+name = "bikesmodel"
+authors = [{name = "Daniel"}]
+dynamic = ["version", "description"]
+dependecies = [
+    "pandas",
+    "numpy",
+    "scikit-learn",
+]
