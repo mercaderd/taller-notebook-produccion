@@ -5,6 +5,7 @@ Library code for Washingtong DC bike model
 __version__="0.1"
 
 import os
+import joblib
 
 import pandas as pd
 import numpy as np
@@ -66,8 +67,33 @@ def train_and_persist() -> None:
     #X_test, y_test = X.loc["2012-10" <= X["dteday"]], y.loc["2012-10" <= X["dteday"]]
 
     reg.fit(X_train, y_train)
+
+    joblib.dump(reg, "/tmp/model.joblib")
     
 
-def predict() -> int:
-    ...
+def predict(dteday,
+    hr,
+    weathersit,
+    temp,
+    atemp,
+    hum,
+    windspeed) -> int:
+    model = joblib.load("/tmp/model.joblib")
+    X_input = pd.DataFrame([[dteday,
+    hr,
+    weathersit,
+    temp,
+    atemp,
+    hum,
+    windspeed]], columns=[
+    'dteday',
+    'hr',
+    'weathersit',
+    'temp',
+    'atemp',
+    'hum',
+    'windspeed'
+])
+    result = model.predict(X_input)
+    return int(result)
 
