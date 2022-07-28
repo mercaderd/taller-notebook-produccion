@@ -6,7 +6,10 @@
    y probar que funciona desde un intérprete de Python
 2. Crear una aplicación web usando FastAPI que haga uso de ese código
    y probar que funciona desde Gitpod
-3. Desplegar la aplicación web en Railway
+   
+   ## Falta terminar la función predict en app.py
+   
+3. Desplegar la aplicación web en Railway [Pendiente]
 
 ## Referencias
 
