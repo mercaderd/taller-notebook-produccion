@@ -4,6 +4,7 @@ Library code for Washingtong DC bike model
 
 __version__="0.1"
 
+import os
 
 import pandas as pd
 import numpy as np
@@ -13,6 +14,8 @@ from sklearn.pipeline import Pipeline, make_pipeline
 from sklearn.preprocessing import OrdinalEncoder, FunctionTransformer
 from sklearn.pipeline import FeatureUnion, make_union
 from sklearn.ensemble import RandomForestRegressor
+
+DATA_DIRECTORY = os.path.abspath(os.path.dirname(__file__))
 
 
 def ffill_missing(ser):
@@ -34,7 +37,9 @@ def year(data):
 
 
 def train_and_persist() -> None:
-    df = pd.read_csv("hour.csv", parse_dates=["dteday"])
+    df = pd.read_csv(
+        os.path.join(DATA_DIRECTORY,"hour.csv"), 
+        parse_dates=["dteday"])
     X = df.drop(columns=["instant", "cnt", "casual", "registered"])
     y = df["cnt"]
     ffiller = FunctionTransformer(ffill_missing)
