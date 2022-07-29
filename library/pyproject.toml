@@ -6,8 +6,9 @@ build-backend = "flit_core.buildapi"
 name = "bikesmodel"
 authors = [{name = "Daniel"}]
 dynamic = ["version", "description"]
-dependecies = [
+dependencies = [
     "pandas",
     "numpy",
     "scikit-learn",
+    "joblib"
 ]

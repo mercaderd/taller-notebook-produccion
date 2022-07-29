@@ -1,0 +1,7 @@
+2012-11-01
+10
+Clear, Few clouds, Partly cloudy, Partly cloudy
+0.3
+0.31
+0.8
+0.0
