@@ -6,7 +6,7 @@ app = FastAPI()
 
 @app.get("/")
 async def home():
-    return {"message": "Hello, World!"}
+    return {"message": "Hello, Cruel World!"}
 
 @app.post("/train_and_persist")
 async def do_train_and_persist():
